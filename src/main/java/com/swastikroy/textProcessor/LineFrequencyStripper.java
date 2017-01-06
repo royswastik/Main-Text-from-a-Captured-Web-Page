@@ -1,4 +1,4 @@
-package com.swastikroy.researchPaper;
+package com.swastikroy.textProcessor;
 
 import com.swastikroy.nlp.MyPOSTagger;
 import com.swastikroy.nlp.MyTokenizer;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Swastik on 1/4/2017.
  */
 @Named
-public class LineFrequencyStripper {
+public class LineFrequencyStripper  {
 
     public static LineFrequencyStripper myInstance;
 

@@ -1,4 +1,4 @@
-package com.swastikroy.researchPaper;
+package com.swastikroy.textProcessor;
 
 import com.swastikroy.nlp.MyTokenizer;
 import com.swastikroy.util.MathUtil;

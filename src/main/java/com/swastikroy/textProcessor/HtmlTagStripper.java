@@ -1,7 +1,6 @@
-package com.swastikroy.researchPaper;
+package com.swastikroy.textProcessor;
 
 import com.swastikroy.extractor.MyBoilerpipeExtractor;
-import com.swastikroy.model.ArticleContent;
 import com.swastikroy.nlp.SentenceSplitter;
 import de.l3s.boilerpipe.document.TextDocument;
 import de.l3s.boilerpipe.extractors.*;
@@ -12,7 +11,6 @@ import de.l3s.boilerpipe.sax.HTMLFetcher;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.List;
 
 /**

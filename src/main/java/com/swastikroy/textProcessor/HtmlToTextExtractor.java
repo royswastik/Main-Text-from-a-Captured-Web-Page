@@ -1,4 +1,4 @@
-package com.swastikroy.researchPaper;
+package com.swastikroy.textProcessor;
 
 import javax.inject.Inject;
 import javax.inject.Named;
