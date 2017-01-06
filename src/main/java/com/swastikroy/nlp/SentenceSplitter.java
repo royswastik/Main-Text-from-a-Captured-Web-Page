@@ -32,6 +32,11 @@ public class SentenceSplitter {
 	private SentenceSplitter() {
 	}
 
+	/**
+	 * Splits text with multiple sentences to List of sentences
+	 * @param txt
+	 * @return
+     */
 	public synchronized List<String> splitSent(String txt) {
 		Document doc = new Document(txt);
 		List<String> response = new ArrayList<String>();

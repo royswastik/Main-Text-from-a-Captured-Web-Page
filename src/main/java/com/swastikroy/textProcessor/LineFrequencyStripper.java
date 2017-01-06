@@ -30,6 +30,13 @@ public class LineFrequencyStripper  {
         return myInstance;
     }
 
+    /**
+     * Finds minimum frequency score allowed per line
+     * @param userSuppliedThreshold
+     * @param lines
+     * @return
+     * @throws IOException
+     */
     public int findMinimumFrequenceScoreAllowedPerLine(double userSuppliedThreshold, List<String> lines) throws IOException {
         List<Double> lineFrequencyScoreList = getLineFrequencyScoreList(lines);
         Double standardDeviation = MathUtil.calculateStandardDeviation(lineFrequencyScoreList);
@@ -37,6 +44,12 @@ public class LineFrequencyStripper  {
         return minimumFrequencyScoreAllowedPerLine.intValue();
     }
 
+    /**
+     * Finds frequency score for each line in a list
+     * @param lines
+     * @return
+     * @throws IOException
+     */
     public List<Double> getLineFrequencyScoreList(List<String> lines) throws IOException {
         List<Double> lineFrequencyScoreList = new ArrayList<Double>();
         Iterator<String> it = lines.listIterator();
@@ -48,6 +61,13 @@ public class LineFrequencyStripper  {
         return lineFrequencyScoreList;
     }
 
+    /**
+     * Eliminates lines which fall under frequency threshold value
+     * @param lines
+     * @param userSuppliedInput
+     * @return
+     * @throws IOException
+     */
     public List<String> processLines(List<String> lines, double userSuppliedInput) throws IOException {
         int frequencyThreshold = findMinimumFrequenceScoreAllowedPerLine(userSuppliedInput, lines);
         List<String> response = new ArrayList<String>();
@@ -62,6 +82,12 @@ public class LineFrequencyStripper  {
         return response;
     }
 
+    /**
+     * Get frequency score for a line, which is sum of frequency score of its words
+     * @param line
+     * @return
+     * @throws IOException
+     */
     public int getFrequencyScore(String line) throws IOException {
         List<String> tokens = MyTokenizer.getMyInstance().getTokens(line);
         List<String> posTags = MyPOSTagger.getMyInstance().getPOS(line);

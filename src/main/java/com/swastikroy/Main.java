@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Swastik on 1/6/2017.
+ * Main class to run code from terminal
  */
 public class Main {
     public static void main(String[] args) throws IOException {

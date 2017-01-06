@@ -21,6 +21,11 @@ public class MyPOSTagger {
         return myInstance;
     }
 
+    /**
+     * Returns POS List for tokens in a sentence
+     * @param sentence
+     * @return
+     */
     public List<String> getPOS(String sentence){
         Sentence sent = new Sentence(sentence);
         List<String> words = sent.posTags();

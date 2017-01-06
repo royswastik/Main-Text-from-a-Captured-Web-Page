@@ -13,10 +13,16 @@ import java.util.List;
 
 /**
  * Created by Swastik on 1/6/2017.
+ * Strips all html tags and returns text from a webpage
  */
 @Named
 public class HtmlTagStripper {
 
+    /**
+     * Returns text from a web page, stripping all html tags
+     * @param url
+     * @return
+     */
     public static String getText(String url){
         try {
             final HTMLDocument htmlDoc = HTMLFetcher.fetch(new URL(url));
@@ -29,6 +35,11 @@ public class HtmlTagStripper {
         }
     }
 
+    /**
+     * Returns lines from the extracted text, after stripping all html tags
+     * @param url
+     * @return
+     */
     public static List<String> getLines(String url){
         String allText = getText(url);
         List<String> lines = SentenceSplitter.getInstance().splitSent(allText);

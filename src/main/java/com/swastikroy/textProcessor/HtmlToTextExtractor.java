@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Swastik on 1/6/2017.
+ * Class to extract main text from captured web page
  */
 
 @Named
@@ -25,6 +26,14 @@ public class HtmlToTextExtractor {
 
     }
 
+    /**
+     * Extract Main Text
+     * @param url
+     * @param userLineLengthInput
+     * @param userFrequencyInput
+     * @return
+     * @throws IOException
+     */
     public List<String> extractTextFromHtml(String url, double userLineLengthInput, double userFrequencyInput) throws IOException {
         List<String> lines = HtmlTagStripper.getLines(url);
 

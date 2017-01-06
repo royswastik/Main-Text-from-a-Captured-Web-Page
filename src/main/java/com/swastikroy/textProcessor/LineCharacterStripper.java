@@ -24,6 +24,11 @@ public class LineCharacterStripper {
         return myInstance;
     }
 
+    /**
+     * Eliminates lines which do not begin with letters, numbers, parenthesis, single quote and double quote
+     * @param lines
+     * @return
+     */
     public List<String> processLines(List<String> lines){
         List<String> response = new ArrayList<String>();
         Iterator<String> it = lines.listIterator();

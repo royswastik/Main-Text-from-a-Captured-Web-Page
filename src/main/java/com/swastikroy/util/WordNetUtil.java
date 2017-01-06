@@ -40,6 +40,12 @@ public class WordNetUtil {
         return instanceWordNetUtil;
     }
 
+    /**
+     * Calculate frequency score of a given word with a given POS
+     * @param wordText
+     * @param pos
+     * @return
+     */
     public int getWordFrequencyCount(String wordText, POS pos){
         IIndexWord idxWord = dict.getIndexWord(wordText, pos);
         if(idxWord == null){
@@ -51,6 +57,12 @@ public class WordNetUtil {
         return count;
     }
 
+    /**
+     * Calculate Total Frequency Score of a list of words
+     * @param tokens
+     * @param posTags
+     * @return
+     */
     public int getTotalWordsFrequencyCount(List<String> tokens, List<String> posTags){
         int totalFrequencyScore = 0;
         for(int i =0; i < tokens.size() ; i++){
@@ -63,6 +75,11 @@ public class WordNetUtil {
         return totalFrequencyScore;
     }
 
+    /**
+     * Get POS required for WordNet, from POS Tag
+     * @param pos
+     * @return
+     */
     public POS getPOSFromTag(String pos){
         if(pos.startsWith("NN")){
             return POS.NOUN;

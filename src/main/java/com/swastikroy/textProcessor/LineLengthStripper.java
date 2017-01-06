@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by Swastik on 1/3/2017.
+ * Removes lines which do not meet the threshold value
  */
 @Named
 public class LineLengthStripper {
@@ -27,6 +28,13 @@ public class LineLengthStripper {
         return myInstance;
     }
 
+    /**
+     * Finds the minimum number of words allowed per line, from the user supplied short line
+     * threshold and standard deviation of number of words in each line
+     * @param userSuppliedThreshold
+     * @param lines
+     * @return
+     */
     public int findMinimumNumberOfWordsAllowedPerLine(double userSuppliedThreshold, List<String> lines){
         List<Double> lineCountList = getLineCountList(lines);
         Double meanWordCount = MathUtil.calculateMean(lineCountList);
@@ -35,6 +43,12 @@ public class LineLengthStripper {
         return minimumNumberOfWordsAllowedPerLine.intValue();
     }
 
+    /**
+     * Eliminates all lines which fall below the short line threshold value
+     * @param lines
+     * @param userSuppliedInput
+     * @return
+     */
     public List<String> processLines(List<String> lines, double userSuppliedInput){
         int shortLineThreshold = findMinimumNumberOfWordsAllowedPerLine(userSuppliedInput, lines);
         List<String> response = new ArrayList<String>();
@@ -49,6 +63,11 @@ public class LineLengthStripper {
         return response;
     }
 
+    /**
+     * Get a list with count of words in each line
+     * @param lines
+     * @return
+     */
     public List<Double> getLineCountList(List<String> lines){
         List<Double> lineCountList = new ArrayList<Double>();
         Iterator<String> it = lines.listIterator();
@@ -60,6 +79,11 @@ public class LineLengthStripper {
         return lineCountList;
     }
 
+    /**
+     * Get number of words in a single line
+     * @param line
+     * @return
+     */
     public int getWordCount(String line){
         List<String> tokens =  MyTokenizer.getMyInstance().getTokens(line.trim());
         int wordCount = tokens.size();

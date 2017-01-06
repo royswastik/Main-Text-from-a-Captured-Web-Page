@@ -24,7 +24,7 @@ public class HtmlExtractorTest {
 
     @Test
     public void test1() throws IOException {
-        String url = "https://in.style.yahoo.com/veteran-actor-om-puri-dies-age-66-044734393.html";
+        String url = "https://en.wikipedia.org/wiki/Alan_Turing";
         List<String> lines = htmlToTextExtractor.extractTextFromHtml(url , 0.5 , 0.5);
         System.out.println(lines);
     }

@@ -22,6 +22,11 @@ public class MyTokenizer {
         return myInstance;
     }
 
+    /**
+     * Returns list of tokens from a given sentence
+     * @param sentence
+     * @return
+     */
     public List<String> getTokens(String sentence){
         Sentence sent = new Sentence(sentence);
         List<String> words = sent.words();
