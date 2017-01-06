@@ -12,11 +12,21 @@ import java.util.List;
 @Named
 public class HtmlToTextExtractor {
 
-    @Inject
-    HtmlTagStripper htmlTagStripper;
+    private static HtmlToTextExtractor myInstance;
+
+    public static HtmlToTextExtractor getInstance(){
+        if(myInstance == null)
+            myInstance = new HtmlToTextExtractor();
+
+        return myInstance;
+    }
+
+    private HtmlToTextExtractor(){
+
+    }
 
     public List<String> extractTextFromHtml(String url, double userLineLengthInput, double userFrequencyInput) throws IOException {
-        List<String> lines = htmlTagStripper.getLines(url);
+        List<String> lines = HtmlTagStripper.getLines(url);
 
         lines = LineLengthStripper.getMyInstance().processLines(lines, userLineLengthInput);
 
@@ -26,6 +36,5 @@ public class HtmlToTextExtractor {
 
         return lines;
     }
-
 
 }

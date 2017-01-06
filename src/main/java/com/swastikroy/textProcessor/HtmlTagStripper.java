@@ -1,6 +1,5 @@
 package com.swastikroy.textProcessor;
 
-import com.swastikroy.extractor.MyBoilerpipeExtractor;
 import com.swastikroy.nlp.SentenceSplitter;
 import de.l3s.boilerpipe.document.TextDocument;
 import de.l3s.boilerpipe.extractors.*;
@@ -8,7 +7,6 @@ import de.l3s.boilerpipe.sax.BoilerpipeSAXInput;
 import de.l3s.boilerpipe.sax.HTMLDocument;
 import de.l3s.boilerpipe.sax.HTMLFetcher;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.net.URL;
 import java.util.List;
@@ -19,11 +17,7 @@ import java.util.List;
 @Named
 public class HtmlTagStripper {
 
-    @Inject
-    MyBoilerpipeExtractor myBoilerpipeExtractor;
-
-
-    public String getText(String url){
+    public static String getText(String url){
         try {
             final HTMLDocument htmlDoc = HTMLFetcher.fetch(new URL(url));
             final TextDocument doc = new BoilerpipeSAXInput(htmlDoc.toInputSource()).getTextDocument();
@@ -35,7 +29,7 @@ public class HtmlTagStripper {
         }
     }
 
-    public List<String> getLines(String url){
+    public static List<String> getLines(String url){
         String allText = getText(url);
         List<String> lines = SentenceSplitter.getInstance().splitSent(allText);
         return lines;
